@@ -1,5 +1,3 @@
-Adjusting Entries Academy
-
 An interactive web application designed to help accounting students master the most challenging topic in introductory accounting: adjusting entries. This comprehensive learning platform provides structured lessons, guided practice, and challenging assessments covering all five types of adjusting entries.
 
 ## 🎯 Features

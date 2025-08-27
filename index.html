@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Adjusting Entries Academy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Adjusting Entries Academy</h1>
+            <p class="subtitle">Master the most challenging topic in introductory accounting</p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="score-display">Score: <span id="score">0</span></div>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="overview">Overview</button>
+            <button class="nav-btn" data-section="lessons">Lessons</button>
+            <button class="nav-btn" data-section="practice">Practice</button>
+            <button class="nav-btn" data-section="challenge">Challenge</button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="section active">
+                <h2>🎯 Learning Objectives</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <h3>Understand</h3>
+                        <p>The purpose and timing of adjusting entries</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>Identify</h3>
+                        <p>All five types of adjusting entries</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>Create</h3>
+                        <p>Accurate journal entries for each type</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>Master</h3>
+                        <p>Real-world application scenarios</p>
+                    </div>
+                </div>
+
+                <h2>📚 Five Types of Adjusting Entries</h2>
+                <div class="adjustment-types">
+                    <div class="type-card" data-type="accrued-revenue">
+                        <h3>Accrued Revenue</h3>
+                        <p>Revenue earned but not yet recorded</p>
+                    </div>
+                    <div class="type-card" data-type="accrued-expense">
+                        <h3>Accrued Expense</h3>
+                        <p>Expenses incurred but not yet recorded</p>
+                    </div>
+                    <div class="type-card" data-type="unearned-revenue">
+                        <h3>Unearned Revenue</h3>
+                        <p>Cash received for services not yet provided</p>
+                    </div>
+                    <div class="type-card" data-type="prepaid-expense">
+                        <h3>Prepaid Expense</h3>
+                        <p>Cash paid for services not yet received</p>
+                    </div>
+                    <div class="type-card" data-type="depreciation">
+                        <h3>Depreciation</h3>
+                        <p>Allocation of asset costs over time</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lessons Section -->
+            <section id="lessons" class="section">
+                <h2>📖 Interactive Lessons</h2>
+                <div class="lesson-selector">
+                    <button class="lesson-btn active" data-lesson="accrued-revenue">Accrued Revenue</button>
+                    <button class="lesson-btn" data-lesson="accrued-expense">Accrued Expense</button>
+                    <button class="lesson-btn" data-lesson="unearned-revenue">Unearned Revenue</button>
+                    <button class="lesson-btn" data-lesson="prepaid-expense">Prepaid Expense</button>
+                    <button class="lesson-btn" data-lesson="depreciation">Depreciation</button>
+                </div>
+                <div class="lesson-content" id="lesson-content">
+                    <!-- Lesson content will be dynamically loaded -->
+                </div>
+            </section>
+
+            <!-- Practice Section -->
+            <section id="practice" class="section">
+                <h2>🎯 Guided Practice</h2>
+                <div class="practice-controls">
+                    <select id="practice-filter">
+                        <option value="all">All Types</option>
+                        <option value="accrued-revenue">Accrued Revenue</option>
+                        <option value="accrued-expense">Accrued Expense</option>
+                        <option value="unearned-revenue">Unearned Revenue</option>
+                        <option value="prepaid-expense">Prepaid Expense</option>
+                        <option value="depreciation">Depreciation</option>
+                    </select>
+                    <button id="new-question-btn">New Question</button>
+                </div>
+                <div class="question-container" id="question-container">
+                    <!-- Questions will be dynamically loaded -->
+                </div>
+            </section>
+
+            <!-- Challenge Section -->
+            <section id="challenge" class="section">
+                <h2>🏆 Final Challenge</h2>
+                <div class="challenge-info">
+                    <p>Test your mastery with 10 randomized questions covering all adjustment types.</p>
+                    <p>You have 15 minutes to complete the challenge.</p>
+                </div>
+                <div class="challenge-controls">
+                    <button id="start-challenge-btn" class="primary-btn">Start Challenge</button>
+                </div>
+                <div class="challenge-container" id="challenge-container" style="display: none;">
+                    <div class="challenge-header">
+                        <div class="timer">Time: <span id="timer">15:00</span></div>
+                        <div class="question-counter">Question <span id="question-num">1</span> of 10</div>
+                    </div>
+                    <div class="challenge-question" id="challenge-question">
+                        <!-- Challenge questions will be dynamically loaded -->
+                    </div>
+                </div>
+                <div class="challenge-results" id="challenge-results" style="display: none;">
+                    <!-- Results will be shown here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Journal Entry Builder -->
+    <div class="modal" id="entry-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Journal Entry Builder</h3>
+            <div class="entry-builder">
+                <div class="entry-row">
+                    <label>Account:</label>
+                    <select class="account-select" id="debit-account">
+                        <option value="">Select Account</option>
+                    </select>
+                    <label>Debit:</label>
+                    <input type="number" class="amount-input" id="debit-amount" min="0" step="0.01">
+                </div>
+                <div class="entry-row">
+                    <label>Account:</label>
+                    <select class="account-select" id="credit-account">
+                        <option value="">Select Account</option>
+                    </select>
+                    <label>Credit:</label>
+                    <input type="number" class="amount-input" id="credit-amount" min="0" step="0.01">
+                </div>
+                <div class="entry-preview" id="entry-preview"></div>
+                <div class="entry-controls">
+                    <button id="check-entry-btn">Check Entry</button>
+                    <button id="reset-entry-btn">Reset</button>
+                </div>
+            </div>
+            <div class="feedback" id="entry-feedback"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Question Feedback -->
+    <div class="modal" id="feedback-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="feedback-title">Feedback</h3>
+            <div id="feedback-content"></div>
+            <button id="continue-btn">Continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
